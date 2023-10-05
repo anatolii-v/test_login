@@ -4,7 +4,7 @@ from playwright.sync_api import Playwright, sync_playwright, expect
 
 #@pytest.mark.login
 def run(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=True)
+    browser = playwright.webkit.launch(headless=True)
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://ssp.smartyads.com/signin")
@@ -16,6 +16,8 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Login").click()
 
     expect(page).to_have_url("https://ssp.smartyads.com/dashboard")
+    # expect(page).to_have_title("Dashboard | SmartyAds SSP")
+    # expect(page.get_by_text("dobilim278@gronasu.com")).to_be_visible()
 
 
     # ---------------------

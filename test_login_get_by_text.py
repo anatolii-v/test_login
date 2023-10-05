@@ -17,6 +17,8 @@ def run(playwright: Playwright) -> None:
 
 
     expect(page.get_by_text("dobilim278@gronasu.com")).to_be_visible()
+    # expect(page).to_have_url("https://ssp.smartyads.com/dashboard")
+    # expect(page).to_have_title("Dashboard | SmartyAds SSP")
 
     # ---------------------
     context.close()
